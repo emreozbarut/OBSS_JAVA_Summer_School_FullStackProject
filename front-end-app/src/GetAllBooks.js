@@ -1,6 +1,6 @@
 import * as BookAPI from './BookAPI';
 import React from 'react';
-
+import image from './java.jpg';
 class BookInfo extends React.Component {
     constructor(props) {
         super(props)
@@ -25,7 +25,7 @@ class BookInfo extends React.Component {
                           <div>
                               <ul>
                                   <li>
-                              <img src={require('D:/front-end-app/src/java.jpg')}/><br/>
+                              <img src={image}/><br/>
                               
                               {book.title}<br/>
                               {book.publishDate}<br/>
