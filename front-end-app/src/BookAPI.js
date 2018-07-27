@@ -37,6 +37,16 @@ export const update = (book, shelf) =>
     body: JSON.stringify( shelf )
   }).then(res => res.json())
 
+  export const insertBook = (shelf) =>
+  fetch(`${api}/books`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify( shelf )
+  }).then(res => res.json())
+
 export const del = (bookID) =>
   fetch(`${api}/books/${bookID}`, {
     method: 'DELETE',

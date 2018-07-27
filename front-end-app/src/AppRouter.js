@@ -9,6 +9,7 @@ import AdminMainPage from './AdminPage';
 import Login from './Login';
 import UserMain from './UserPage';
 import Links from './links';
+import AddBook from './AddBook';
 const AppRouter = ()=>(
     <Switch>
         <Route exact path="/" render={()=> <Redirect replace to="links"/>}/>
@@ -21,6 +22,7 @@ const AppRouter = ()=>(
         <Route path="/admin" component={AdminMainPage}/>
         <Route path="/search" component={SearchBooks}/>
         <Route path="/usermain" component={UserMain}/>
+        <Route path="/addbook" component={AddBook}/>
     </Switch>
 )
 

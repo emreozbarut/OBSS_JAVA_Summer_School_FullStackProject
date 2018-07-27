@@ -20,11 +20,10 @@ class BookInfo extends React.Component {
         return (
             <div>
                 {this.state.books.map((book)=>(
-                    <ol>
+                    <ul>
                         <li>
                           <div>
-                              <ul>
-                                  <li>
+                              
                               <img src={image}/><br/>
                               
                               {book.title}<br/>
@@ -32,11 +31,10 @@ class BookInfo extends React.Component {
                               
                               <button>Add to Favorites</button>
                               <button>Add to Will Reads</button>
-                                   </li>
-                              </ul>
+                               
                           </div>
                         </li>
-                      </ol>
+                      </ul>
                 ))}
             </div>
                 

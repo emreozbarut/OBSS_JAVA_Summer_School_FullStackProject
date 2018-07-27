@@ -9,6 +9,7 @@ class Links extends React.Component{
                 <Link to={"/main"}>Main</Link><br/>
                 <Link to={"/delete"}>Delete Book</Link><br/>
                 <Link to={"/getbooks"}>Get All Books</Link><br/>
+                <Link to={"/addbook"}>Add Book</Link><br/>
                 <Link to={"/admin"}>Admin Page</Link><br/>
                 <Link to={"/usermain"}>User Main Page</Link><br/>
                 <Link to={"/search"}>Search Book</Link><br/>
