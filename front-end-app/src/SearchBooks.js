@@ -48,10 +48,10 @@ class SearchBooks extends React.Component{
                 <button onClick={this.clickHandler}>Search</button>
 
                 <div>
-                    <ol>
+                    
                       {books.map((book) => (
-                        <ol>
-                        <li>
+                        
+                        
                           <div>
                               <ul>
                                   <li>
@@ -65,10 +65,10 @@ class SearchBooks extends React.Component{
                                    </li>
                               </ul>
                           </div>
-                        </li>
-                      </ol>
+                        
+                      
                       ))}
-                    </ol>
+                
                 </div>
             </div>
         )

@@ -5,22 +5,27 @@ class AddBook extends React.Component{
     constructor(props){
         super(props)
         this.state={
-            "bookID":2,
             "title":"",
-            "publishDate":"27.07.2018",
-            "updateDate":"27.07.2018",
-            "insertDate":"27.07.2018",
+            "publishDate":"28.07.2018",
+            "updateDate":"28.07.2018",
+            "insertDate":"28.07.2018",
             "insertedBy":"1",
             "redirect":false
         };
         this.changeHandler=this.changeHandler.bind(this);
     }
     setRedirect = () => {
+        if(this.state.title!==""){
         BookAPI.insertBook(this.state);
-        this.setState({bookID:this.state.bookID+1});
         this.setState({
           redirect: true
         })
+        }else{
+            this.setState({
+                redirect: false
+              })
+              alert('Title cannot be null!!!');
+        }
       }
       renderRedirect = () => {
         if (this.state.redirect) {
@@ -34,7 +39,7 @@ class AddBook extends React.Component{
     render(){
         return(
             <div>
-                <input name="title" type="text" onChange={this.changeHandler} value={this.state.title}/><br/>
+                <input name="title" type="text" onChange={this.changeHandler} placeHolder="Name of the Book" value={this.state.title}/><br/>
                 {this.renderRedirect()}
                 <button onClick={this.setRedirect}>Add Book</button><br/>
             </div>           

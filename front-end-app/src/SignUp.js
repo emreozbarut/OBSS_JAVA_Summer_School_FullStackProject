@@ -6,27 +6,35 @@ class SignUp extends React.Component{
         super(props)
         this.state={username: '',
             email: '',
-            password: '' ,userID: 12,
-            roleID:1,redirect:false                   
+            password: '' ,
+            roleID:1,redirect:false,confirm:''                   
     };
         this.changeHandler=this.changeHandler.bind(this);
         this.clickHandler=this.clickHandler.bind(this);
     }
     setRedirect = () => {
-        BookAPI.insert(this.state);
-        this.setState({userID:this.state.userID+1});
+      
         this.setState({
           redirect: true
-        })
+        });
+        
       }
+    
       renderRedirect = () => {
         if (this.state.redirect) {
           return <Redirect to='/usermain'/>
         }
       }
     clickHandler(event){
-        
-        
+        if(this.state.confirm===this.state.password){
+        this.setRedirect();        
+        BookAPI.insert(this.state);
+        }else{
+            this.setState({
+                redirect: false
+              });
+              alert('Passwords are not same');
+        }              
     }
     changeHandler(event){
         this.setState({[event.target.name]:event.target.value});
@@ -37,9 +45,9 @@ class SignUp extends React.Component{
                 <input name="username" type="text" onChange={this.changeHandler} value={this.state.username}/><br/>
                 <input name="email" type="text" onChange={this.changeHandler} value={this.state.email}/><br/>
                 <input name="password" type="password" onChange={this.changeHandler} value={this.state.password}/><br/>
-                <input type="password"/><br/>
+                <input name="confirm" type="password" onChange={this.changeHandler} value={this.state.confirm}/><br/>
                 {this.renderRedirect()}
-                <button onClick={this.setRedirect}>Login</button><br/>
+                <button onClick={this.clickHandler}>Login</button><br/>
             </div>           
         )
     }
