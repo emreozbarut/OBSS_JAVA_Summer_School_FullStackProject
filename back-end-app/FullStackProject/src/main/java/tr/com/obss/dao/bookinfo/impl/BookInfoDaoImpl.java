@@ -46,9 +46,9 @@ public class BookInfoDaoImpl implements BookInfoDao {
 	}
 
 	@Override
-	public void delete(int bookID) {
-		String sql = "DELETE FROM bookinfo WHERE bookID=?";
-		jdbcTemplate.update(sql, new Object[] { bookID });
+	public void delete(String title) {
+		String sql = "DELETE FROM bookinfo WHERE title=?";
+		jdbcTemplate.update(sql, new Object[] { title });
 		System.out.println("Book Deleted!!!");
 	}
 
@@ -64,7 +64,7 @@ public class BookInfoDaoImpl implements BookInfoDao {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List<BookInfo> getBookByTitle(String title) {
-		String sql = "SELECT * FROM bookinfo WHERE title LIKE '%"+title+"%'";
+		String sql = "SELECT * FROM bookinfo WHERE title LIKE '%"+title+"%'";//SQL injection !!!
 		List<BookInfo> books = jdbcTemplate.query(sql, new BeanPropertyRowMapper(BookInfo.class));
 		System.out.println("getBookByTitle!!!");
 		return books;

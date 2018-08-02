@@ -30,8 +30,8 @@ public class BookInfoServiceImpl implements BookInfoService {
 	}
 
 	@Override
-	public void delete(int bookID) {
-		bookDao.delete(bookID);
+	public void delete(String title) {
+		bookDao.delete(title);
 	}
 
 	@Override

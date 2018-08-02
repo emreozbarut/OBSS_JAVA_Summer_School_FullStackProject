@@ -47,8 +47,8 @@ export const update = (book, shelf) =>
     body: JSON.stringify( shelf )
   }).then(res => res.json())
 
-export const del = (bookID) =>
-  fetch(`${api}/books/${bookID}`, {
+export const del = (title) =>
+  fetch(`${api}/books/${title}`, {
     method: 'DELETE',
     headers:{
       ...headers,

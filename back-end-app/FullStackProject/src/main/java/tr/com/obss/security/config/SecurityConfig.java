@@ -3,7 +3,6 @@ package tr.com.obss.security.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -34,12 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
         
-     http
-        .cors().and().authorizeRequests().antMatchers(HttpMethod.OPTIONS).permitAll().and()
-        .authorizeRequests()
-        .antMatchers("**").permitAll()
-        .and()
-        .csrf().disable();
+     http.cors().and().authorizeRequests().antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')").antMatchers("/dba/**")
+		.access("hasRole('ROLE_ADMIN') or hasRole('ROLE_DBA')").and().formLogin().and().csrf().disable();
     }
     
     @Bean

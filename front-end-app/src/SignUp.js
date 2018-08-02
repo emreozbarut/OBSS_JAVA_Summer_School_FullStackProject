@@ -1,6 +1,8 @@
 import React from 'react';
 import * as BookAPI from './BookAPI';
 import  { Redirect } from 'react-router-dom';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 class SignUp extends React.Component{
     constructor(props){
         super(props)
@@ -25,7 +27,8 @@ class SignUp extends React.Component{
           return <Redirect to='/usermain'/>
         }
       }
-    clickHandler(event){
+    clickHandler(){
+        if(this.state.username!=='' && this.state.email!=='' && this.state.password!=='' && this.state.confirm!==''){
         if(this.state.confirm===this.state.password){
         this.setRedirect();        
         BookAPI.insert(this.state);
@@ -34,21 +37,38 @@ class SignUp extends React.Component{
                 redirect: false
               });
               alert('Passwords are not same');
-        }              
+        } 
+    }else{
+        alert('All fields have to be filled...')
+    }             
     }
     changeHandler(event){
-        this.setState({[event.target.name]:event.target.value});
+        this.setState({[event.target.name]:event.target.value});        
     }
     render(){
         return(
-            <div>
-                <input name="username" type="text" onChange={this.changeHandler} value={this.state.username}/><br/>
-                <input name="email" type="text" onChange={this.changeHandler} value={this.state.email}/><br/>
-                <input name="password" type="password" onChange={this.changeHandler} value={this.state.password}/><br/>
-                <input name="confirm" type="password" onChange={this.changeHandler} value={this.state.confirm}/><br/>
-                {this.renderRedirect()}
-                <button onClick={this.clickHandler}>Login</button><br/>
-            </div>           
+            <Form>
+            <FormGroup>
+          <Label for="username">Username</Label>
+          <Input name="username" placeholder="enter a valid username..." onChange={this.changeHandler} value={this.state.username}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="email">Email</Label>
+          <Input type="email" name="email" placeholder="enter a valid email..." onChange={this.changeHandler} value={this.state.email}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="password">Password</Label>
+          <Input type="password" name="password" placeholder="password..." onChange={this.changeHandler} value={this.state.password}/>
+        </FormGroup>
+        <FormGroup>
+          <Label for="confirm">Confirm Password</Label>
+          <Input type="password" name="confirm" placeholder="password again..." onChange={this.changeHandler} value={this.state.confirm}/>
+        </FormGroup>
+        {this.renderRedirect()}
+        <Button color="primary" onClick={this.clickHandler}>Submit</Button>
+      </Form>
+            
+            
         )
     }
 }

@@ -11,7 +11,7 @@ public interface BookInfoDao {
 
 	public BookInfo put(int bookID, BookInfo book);
 
-	public void delete(int bookID);
+	public void delete(String title);
 	
 	public List<BookInfo> getAll();
 	

@@ -51,9 +51,9 @@ public class BookInfoController {
 		return bookService.put(bookID, book);
 	}
 
-	@DeleteMapping("/{bookID}")
-	public void deleteBook(@PathVariable int bookID) {
+	@DeleteMapping("/{title}")
+	public void deleteBook(@PathVariable String title) {
 		System.out.println("deleteBook Controller");
-		bookService.delete(bookID);
+		bookService.delete(title);
 	}
 }
