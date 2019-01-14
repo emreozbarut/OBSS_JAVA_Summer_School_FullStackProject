@@ -41,7 +41,7 @@ public class Config implements WebMvcConfigurer {
 				"jdbc:mysql://localhost:3306/bookportal?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey");// change
 																															// url
 		dataSource.setUsername("root");// change userid
-		dataSource.setPassword("aef.40267098624");// change pwd
+		dataSource.setPassword("");// change pwd
 		return dataSource;
 	}
 
