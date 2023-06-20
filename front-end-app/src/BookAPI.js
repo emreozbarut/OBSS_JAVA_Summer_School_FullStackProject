@@ -10,12 +10,12 @@ const headers = {
 
 export const get = (title) =>
   fetch(`${api}/books/${title}`, { headers })
-    .then(res => {console.log(res); return res.json(); })
-   
+    .then(res => { console.log(res); return res.json(); })
 
-    export const getAll = () =>
-    fetch(`${api}/books`, {headers })
-      .then(res => res.json())
+
+export const getAll = () =>
+  fetch(`${api}/books`, { headers })
+    .then(res => res.json())
 
 export const update = (book, shelf) =>
   fetch(`${api}/books/${book.id}`, {
@@ -26,47 +26,47 @@ export const update = (book, shelf) =>
     },
     body: JSON.stringify({ shelf })
   }).then(res => res.json())
- 
-  export const insert = (shelf) =>
+
+export const insert = (shelf) =>
   fetch(`${api}/users`, {
     method: 'POST',
     headers: {
       ...headers,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify( shelf )
+    body: JSON.stringify(shelf)
   }).catch(error => error).then(res => res.json())
 
-  export const insertBook = (shelf) =>
+export const insertBook = (shelf) =>
   fetch(`${api}/books`, {
     method: 'POST',
     headers: {
       ...headers,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify( shelf )
+    body: JSON.stringify(shelf)
   }).then(res => res.json())
 
 export const del = (title) =>
   fetch(`${api}/books/${title}`, {
     method: 'DELETE',
-    headers:{
+    headers: {
       ...headers,
       'Content-Type': 'application/json'
     }
   })
-  export const delFav = (bookID) =>
+export const delFav = (bookID) =>
   fetch(`${api}/favorites/${bookID}`, {
     method: 'DELETE',
-    headers:{
+    headers: {
       ...headers,
       'Content-Type': 'application/json'
     }
   })
-  export const delBookInfo = (bookID) =>
+export const delBookInfo = (bookID) =>
   fetch(`${api}/bookinfos/${bookID}`, {
     method: 'DELETE',
-    headers:{
+    headers: {
       ...headers,
       'Content-Type': 'application/json'
     }

@@ -1,0 +1,11 @@
+.DS_Store
+back-end-app/FullStackProject/.classpath
+back-end-app/FullStackProject/.project
+back-end-app/FullStackProject/.classpath
+back-end-app/FullStackProject/.project
+back-end-app/FullStackProject/.settings/org.eclipse.jdt.apt.core.prefs
+back-end-app/FullStackProject/.settings/org.eclipse.jdt.core.prefs
+back-end-app/FullStackProject/target/dependencies.txt
+back-end-app/FullStackProject/target/classes/tr/com/obss/configuration/Config.class
+back-end-app/FullStackProject/target/classes/tr/com/obss/security/config/SecurityConfig$1.class
+.vscode/

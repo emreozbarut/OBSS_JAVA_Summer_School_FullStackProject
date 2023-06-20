@@ -19,3 +19,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.DS_Store
+.vscode/
+/Users/emreozbarut/Desktop/Develop/repo/OBSS_JAVA_Summer_School_FullStackProject/back-end-app/.settings/
+/Users/emreozbarut/Desktop/Develop/repo/OBSS_JAVA_Summer_School_FullStackProject/back-end-app/target

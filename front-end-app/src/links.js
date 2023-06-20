@@ -1,8 +1,8 @@
 import React from 'react';
-import { Nav, NavItem, NavLink } from 'reactstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Image from './java.jpg';
 import {
+    Nav,
+    NavItem,
+    NavLink,
     Collapse,
     Navbar,
     NavbarToggler,
@@ -10,16 +10,15 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem
-} from 'reactstrap';
-
-import {
+    DropdownItem,
     Carousel,
     CarouselItem,
     CarouselControl,
     CarouselIndicators,
     CarouselCaption
 } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Image from './java.jpg';
 
 const items = [
     {
@@ -139,18 +138,18 @@ class Navs extends React.Component {
                             <UncontrolledDropdown nav inNavbar>
                                 <DropdownToggle nav caret>
                                     Options
-                  </DropdownToggle>
+                                </DropdownToggle>
                                 <DropdownMenu right>
                                     <DropdownItem>
                                         Option 1
-                    </DropdownItem>
+                                    </DropdownItem>
                                     <DropdownItem>
                                         Option 2
-                    </DropdownItem>
+                                    </DropdownItem>
                                     <DropdownItem divider />
                                     <DropdownItem>
                                         Reset
-                    </DropdownItem>
+                                    </DropdownItem>
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                         </Nav>
